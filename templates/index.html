@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>最上方的标题</title>
+    <style>
+        [name] {
+            color: #31d2f2;
+        }
+
+        [name=lisi] {
+            color: red;
+        }
+
+        h2[age] {
+            color: pink;
+        }
+
+        .a1 h1 {
+            color: blue;
+            font-family: "霞鹜文楷等宽 Light", "Microsoft YaHei UI", sans-serif;
+        }
+    </style>
+</head>
+<body>
+<h1>1.这是一个一级标题</h1>
+<div>
+    <span style="color: red">时间:</span>
+    <span>2023年8月27日21:42:28</span>
+</div>
+<h2>1.1这是二级标题</h2>
+<h2>1.2这也是一个二级标题</h2>
+<div>
+    这是一个div区块它用于创建一个独立的区块,(div本意是division),占用一整行,浏览器会自动换行,除非你显式的进行了换行
+    可以用于组织HTML文档中的内容，并为其应用样式,<br>
+    这里显式的进行了换行(用的br标签,本意是break)
+    标签可以包含其他HTML元素，例如文本、图像、表格等,
+    通过为标签添加类或ID，可以轻松地对其应用CSS样式和JavaScript脚本
+</div>
+<span style="color: red">span1,此为行内标签,只占有自己显示的这些区域</span>
+<span>span2:即便你换行了,这是第二个span,也跟span1连着,不过有个空格</span>
+
+<h1>超链接示范:</h1>
+<a href="/get/news">内部链接</a> <br>
+<a href="https://www.baidu.com" target="_blank">百度,外部链接,新窗口打开</a>
+
+<h1>图片示范:自闭和标签</h1>
+<!--img是行内标签的一种!!
+    alt是替代文本,无法加载的时候出现
+    title提供悬停指示-->
+<img src="/static/柯基.jpeg"
+     alt="柯基犬,内部静态图"
+     title="柯基犬,内部静态图"
+     width="300"
+     height="200"> <br>
+<img src="https://up.ipaddesk.com/22/fb/5d/dd/c53510de0eaa49df89a47a9bc463c3f4.jpg"
+     alt="柯基犬,外部链接图"
+     title="柯基犬,外部链接图"
+     width="300"
+     height="200">
+
+<h1>点击图片跳转示范:</h1>
+<a href="https://up.ipaddesk.com/22/fb/5d/dd/c53510de0eaa49df89a47a9bc463c3f4.jpg" target="_blank">
+    <img src="/static/柯基.jpeg"
+         alt="柯基犬,外部链接图"
+         title="点击查看原图"
+         width="300"
+         height="200">
+</a>
+
+<h1>列表示范:</h1>
+<h2>无序列表</h2>
+<ul>
+    <li>中国电信</li>
+    <li>中国联通</li>
+    <li>ul代表unorderedList</li>
+</ul>
+<h2>有序列表</h2>
+<ol>
+    <li>起床</li>
+    <li>刷牙</li>
+    <li>洗脸</li>
+    <li>ol代表orderedList</li>
+</ol>
+
+<h1>表格示范:</h1>
+<table border="1">
+    <!--tr是tableRow的缩写,代表一行
+        th是tableHead
+        td是tableData-->
+    <thead>
+    <tr>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>张三</td>
+        <td>18</td>
+        <td>男</td>
+    </tr>
+    <tr>
+        <td>李四</td>
+        <td>19</td>
+        <td>女</td>
+    </tr>
+    </tbody>
+</table>
+
+<h1 name="zhangSan">CSS样式测试</h1>
+<h1 name="lisi">CSS样式测试</h1>
+<h2 age="1">CSS样式测试</h2>
+<h2 >普通的h2不受影响</h2>
+
+<div class="a1">
+    <h1>类型是a1,子标签h1生效</h1>
+    <h2>类型是a2,字标签h2不生效</h2>
+</div>
+
+</body>
+</html>

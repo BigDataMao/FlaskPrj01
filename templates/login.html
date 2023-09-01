@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+    <link rel="stylesheet" href="/static/plugin/bootstrap5/css/bootstrap.css">
+    <style>
+        .account {
+            font-family: "霞鹜文楷等宽 Light", sans-serif;
+            background-color: lightblue;
+            width: 400px;
+            height: 320px;
+            margin: 150px auto 100px;
+            padding-top: 30px;
+            padding-left: 60px;
+            padding-right: 60px;
+            border: 0 solid #ccc;
+            border-radius: 15px;
+            box-shadow: #6c757d 4px 4px 8px;
+        }
+
+        .account h2 {
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        .account form button {
+            align-self: flex-end;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="account">
+    <h2 class="">用户登录</h2>
+    <form>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">邮箱名</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">本站密码</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="float: right">登录</button>
+    </form>
+</div>
+
+
+<!-- 以下是javaScrip的登录方式,我还没学会 -->
+<div class="account">
+    <h2 class="">用户登录</h2>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">用户名</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">密码</label>
+        <input type="password" class="form-control" id="exampleInputPassword1">
+    </div>
+    <button type="button" class="btn btn-primary" style="float: right" onclick="validate()">登录</button>
+
+    <script>
+        function validate() {
+            const username = document.getElementById("exampleInputEmail1").value;
+            const password = document.getElementById("exampleInputPassword1").value;
+
+            // 添加验证逻辑，例如检查用户名和密码是否符合要求
+            if (username.length < 6 || password.length < 8) {
+                alert("用户名至少需要6个字符，密码至少需要8个字符！");
+                return false;
+            }
+
+            // 如果验证通过，可以执行其他操作，例如提交表单或跳转到其他页面
+            // ...
+
+            return true;
+        }
+    </script>
+</div>
+</body>
+</html>
