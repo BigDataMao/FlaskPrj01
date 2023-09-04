@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request
 import pymysql
+from flask import Flask, render_template, request, redirect, url_for
 
 # app = Flask(__name__) 这是默认的写法
 # 但是如果我们把这个文件放到了其他的文件夹下面，那么就需要指定一下
@@ -25,7 +25,31 @@ def login():
 @app.route('/account', methods=['GET', 'POST'])
 def account():
     if request.method == 'GET':
-        return render_template('account.html')
+        conn = pymysql.connect(host="txy", port=3306, user="root", password="mxw19910712@MYSQL", database="flask",
+                               charset="utf8")
+        cursor = conn.cursor()
+        sql = "select * from flask.account"
+        cursor.execute(sql)
+        data_list = []
+        accountID = 0
+        while True:
+            accountID += 1
+            row = cursor.fetchone()
+            if row:
+                myDict = {
+                    "id": accountID,
+                    "user": row[0],
+                    "name": row[2],
+                    "gender": row[3],
+                    "city": row[4],
+                    "email": row[5]
+                }
+                data_list.append(myDict)
+            else:
+                break
+        conn.close()
+        return render_template('account.html', data_list=data_list)
+
     user = request.form.get('user')
     passwd = request.form.get('passwd')
     name = request.form.get('name')
@@ -33,17 +57,16 @@ def account():
     city = request.form.get("city")
     email = request.form.get("email")
 
-    print(user, passwd, name, gender, city, email)
-
     # 保存到数据库
-    conn = pymysql.connect(host="txy", port=3306, user="root", password="mxw19910712@MYSQL", database="flask", charset="utf8")
+    conn = pymysql.connect(host="txy", port=3306, user="root", password="mxw19910712@MYSQL", database="flask",
+                           charset="utf8")
     cursor = conn.cursor()
-    sql = "insert into account values(%s, %s, %s, %s, %s, %s)"
-    cursor.execute(sql, [user, passwd, name, 1, city, email])
+    sql = "insert into flask.account values(%s, %s, %s, %s, %s, %s)"
+    cursor.execute(sql, [user, passwd, name, gender, city, email])
     conn.commit()
     conn.close()
 
-    return "提交成功"
+    return redirect(url_for('account'), code=303)
 
 
 if __name__ == '__main__':
